@@ -1,0 +1,123 @@
+<h2
+  class="sky-section-heading"
+>
+  Basic flyout
+</h2>
+
+<p>
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    (click)="openSimpleFlyout()"
+  >
+    Standard width
+  </button>
+
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    (click)="openFlyoutWithCutsomWidth()"
+  >
+    Custom width
+  </button>
+</p>
+
+<h2
+  class="sky-section-heading"
+>
+  Flyout with customized headers
+</h2>
+
+<p>
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    (click)="openFlyoutWithUrlPermalink()"
+  >
+    URL permalink
+  </button>
+
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    (click)="openFlyoutWithRoutePermalink()"
+  >
+    Angular routing permalink
+  </button>
+
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    (click)="openFlyoutWithIterators()"
+  >
+    Iterators
+  </button>
+</p>
+
+<h2
+  class="sky-section-heading"
+>
+    Close the flyout programmatically
+</h2>
+
+<p>
+  <button
+    class="sky-btn sky-btn-default sky-margin-inline-default"
+    type="button"
+    [disabled]="!flyout"
+    (click)="closeAndRemoveFlyout()"
+  >
+    Close
+  </button>
+</p>
+
+<h2
+  class="sky-section-heading"
+>
+  Grid with flyout
+</h2>
+
+<sky-list
+  [data]="users"
+  [defaultView]="grid"
+>
+  <sky-list-view-grid
+    [rowHighlightedId]="rowHighlightedId"
+    #grid
+  >
+    <sky-grid-column
+      field="name"
+      heading="Name"
+      [template]="customTemplate"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+      field="constituentCode"
+      heading="Constituent code"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+      field="latestGift"
+      heading="Latest gift"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+      field="status"
+      heading="Status"
+    >
+    </sky-grid-column>
+  </sky-list-view-grid>
+</sky-list>
+
+<ng-template
+  let-row="row"
+  #customTemplate
+>
+  <button
+    class="sky-btn sky-btn-link-inline"
+    type="button"
+    (click)="onNameClick(row)"
+  >
+    {{ row.name }}
+  </button>
+</ng-template>
